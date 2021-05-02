@@ -1,10 +1,8 @@
 import React from 'react'
+import {UserProvider} from '../../context/User'
 import logo from '../../img/logo.svg'
 import Router from '../../router/Root'
 import './App.css'
-
-const defaultUserLogged = {logged: false}
-export const UserContext = React.createContext(defaultUserLogged)
 
 function App() {
   return (
@@ -13,9 +11,9 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
       </header>
 
-      <UserContext.Provider value={defaultUserLogged}>
+      <UserProvider>
         <Router />
-      </UserContext.Provider>
+      </UserProvider>
     </div>
   )
 }

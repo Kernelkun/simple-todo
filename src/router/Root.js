@@ -1,11 +1,13 @@
-import React, {useContext} from 'react'
+import React from 'react'
 import {BrowserRouter as Router} from 'react-router-dom'
-import {UserContext} from '../components/App/App'
+import useUser from '../hooks/useUser'
 import LoggedIn from './LoggedIn'
 import LoggedOut from './LoggedOut'
 
 const Root = () => {
-  const {logged} = useContext(UserContext)
+  const {
+    user: {logged},
+  } = useUser()
 
   return (
     <Router>

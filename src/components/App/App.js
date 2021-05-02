@@ -1,4 +1,5 @@
-import logo from './logo.svg'
+import logo from '../../img/logo.svg'
+import Router from '../../router/Root'
 import './App.css'
 
 function App() {
@@ -13,6 +14,8 @@ function App() {
           Learn React
         </a>
       </header>
+
+      <Router />
     </div>
   )
 }

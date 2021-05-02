@@ -1,13 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4e0ded54-c84b-4044-829e-be093619dfeb" name="Default Changelist" comment="">
+    <list default="true" id="4e0ded54-c84b-4044-829e-be093619dfeb" name="Default Changelist" comment="New: remove eject command">
+      <change afterPath="$PROJECT_DIR$/src/pages/Error/Error.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Error/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Login/Login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Login/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Todo/Todo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Todo/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/router/LoggedIn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/router/LoggedOut.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/router/Root.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/logo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -28,7 +51,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/router" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -37,7 +60,12 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/router" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/app" />
+      <recent name="$PROJECT_DIR$/src/img" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -48,8 +76,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1619706348368</updated>
-      <workItem from="1619706349734" duration="4503000" />
+      <workItem from="1619706349734" duration="7767000" />
     </task>
+    <task id="LOCAL-00001" summary="New: remove eject command">
+      <created>1619951379242</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1619951379242</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -65,6 +101,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="New: remove eject command" />
+    <option name="LAST_COMMIT_MESSAGE" value="New: remove eject command" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

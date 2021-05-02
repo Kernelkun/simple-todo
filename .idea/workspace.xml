@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4e0ded54-c84b-4044-829e-be093619dfeb" name="Default Changelist" comment="New: add basic user context">
-      <change afterPath="$PROJECT_DIR$/src/context/User.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/useUser.js" afterDir="false" />
+    <list default="true" id="4e0ded54-c84b-4044-829e-be093619dfeb" name="Default Changelist" comment="New: add User hook to handle logged status">
+      <change afterPath="$PROJECT_DIR$/src/services/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Todo/Todo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Todo/Todo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/Root.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/Root.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +62,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1619706348368</updated>
-      <workItem from="1619706349734" duration="10444000" />
+      <workItem from="1619706349734" duration="13886000" />
     </task>
     <task id="LOCAL-00001" summary="New: remove eject command">
       <created>1619951379242</created>
@@ -89,7 +85,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619975695489</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="New: add User hook to handle logged status">
+      <created>1619977060694</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1619977060694</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,7 +113,8 @@
     <MESSAGE value="New: remove eject command" />
     <MESSAGE value="New: add basic router" />
     <MESSAGE value="New: add basic user context" />
-    <option name="LAST_COMMIT_MESSAGE" value="New: add basic user context" />
+    <MESSAGE value="New: add User hook to handle logged status" />
+    <option name="LAST_COMMIT_MESSAGE" value="New: add User hook to handle logged status" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -9,7 +9,7 @@ import {
   ListItemText,
   makeStyles,
 } from '@material-ui/core'
-import {Delete as DeleteIcon} from '@material-ui/icons'
+import {Delete as DeleteIcon, Edit as EditIcon} from '@material-ui/icons'
 import useTasks from '../../../../hooks/useTasks'
 import {TaskForm} from '../TaskForm'
 
@@ -32,9 +32,13 @@ const Item = ({task}) => {
     setIsUpdating(false)
   }
 
+  const handleRemoveTask = () => removeTask(_id)
+
+  const toggleUpdating = () => setIsUpdating(!isUpdating)
+
   return (
     <React.Fragment>
-      <ListItem button onClick={() => setIsUpdating(!isUpdating)}>
+      <ListItem>
         <ListItemAvatar>
           <Checkbox
             edge="end"
@@ -45,7 +49,10 @@ const Item = ({task}) => {
         </ListItemAvatar>
         <ListItemText id={labelId}>{title}</ListItemText>
         <ListItemSecondaryAction>
-          <IconButton edge="end" aria-label="delete" onClick={() => removeTask(_id)}>
+          <IconButton edge="end" aria-label="edit" onClick={toggleUpdating}>
+            <EditIcon />
+          </IconButton>
+          <IconButton edge="end" aria-label="delete" onClick={handleRemoveTask}>
             <DeleteIcon />
           </IconButton>
         </ListItemSecondaryAction>

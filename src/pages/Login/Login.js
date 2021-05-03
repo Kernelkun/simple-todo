@@ -32,7 +32,14 @@ const Login = () => {
             <TextField id="user" label="User" name="user" variant="outlined" onChange={handleOnChange} />
           </Grid>
           <Grid item>
-            <TextField id="password" label="Password" name="password" variant="outlined" onChange={handleOnChange} />
+            <TextField
+              id="password"
+              label="Password"
+              name="password"
+              variant="outlined"
+              onChange={handleOnChange}
+              type="password"
+            />
           </Grid>
           <Grid item>
             <Button color="primary" type="submit" variant="contained">

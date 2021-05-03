@@ -31,7 +31,6 @@ const Todo = () => {
   }
 
   const updateTask = (taskUpdated) => {
-    console.log('taskUpdated:', taskUpdated)
     const mapped = tasks.map((task) => {
       return task._id === taskUpdated._id ? {...task, ...taskUpdated} : {...task}
     })

@@ -27,6 +27,7 @@ const Item = ({markToDone, removeTask, task, updateTask}) => {
 
   const handleUpdate = (title) => {
     updateTask({...task, title})
+    setIsUpdating(false)
   }
 
   return (

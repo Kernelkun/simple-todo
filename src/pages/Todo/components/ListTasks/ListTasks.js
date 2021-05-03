@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import {
+  Card,
   Checkbox,
+  Grid,
   IconButton,
   List,
   ListItem,
@@ -16,8 +18,11 @@ import {TaskForm} from '../TaskForm'
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
-    maxWidth: 360,
     backgroundColor: theme.palette.background.paper,
+  },
+  list: {
+    marginTop: theme.spacing(4),
+    width: theme.spacing(50),
   },
 }))
 
@@ -68,11 +73,15 @@ const ListTasks = () => {
   const classes = useStyles()
 
   return (
-    <List dense className={classes.root}>
-      {tasks.map((task) => (
-        <Item key={task._id} task={task} />
-      ))}
-    </List>
+    <Grid container justify="center">
+      <Card className={classes.list}>
+        <List dense className={classes.root}>
+          {tasks.map((task) => (
+            <Item key={task._id} task={task} />
+          ))}
+        </List>
+      </Card>
+    </Grid>
   )
 }
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {
   Checkbox,
   IconButton,
@@ -10,6 +10,7 @@ import {
   makeStyles,
 } from '@material-ui/core'
 import {Delete as DeleteIcon} from '@material-ui/icons'
+import {TaskForm} from '../TaskForm'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,15 +20,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const ListTasks = ({markToDone, removeTask, tasks}) => {
-  const classes = useStyles()
+const Item = ({markToDone, removeTask, task, updateTask}) => {
+  const [isUpdating, setIsUpdating] = useState(false)
+  const {_id, done, title} = task
+  const labelId = `checkbox-list-label-${_id}`
 
-  const Item = ({task}) => {
-    const {_id, done, title} = task
-    const labelId = `checkbox-list-label-${_id}`
+  const handleUpdate = (title) => {
+    updateTask({...task, title})
+  }
 
-    return (
-      <ListItem>
+  return (
+    <React.Fragment>
+      <ListItem button onClick={() => setIsUpdating(!isUpdating)}>
         <ListItemAvatar>
           <Checkbox
             edge="end"
@@ -36,20 +40,31 @@ const ListTasks = ({markToDone, removeTask, tasks}) => {
             inputProps={{'aria-labelledby': labelId}}
           />
         </ListItemAvatar>
-        <ListItemText id={labelId} primary={title} />
+        <ListItemText id={labelId}>{title}</ListItemText>
         <ListItemSecondaryAction>
           <IconButton edge="end" aria-label="delete" onClick={() => removeTask(_id)}>
             <DeleteIcon />
           </IconButton>
         </ListItemSecondaryAction>
       </ListItem>
-    )
-  }
+      {isUpdating && <TaskForm defaultValue={title} onSubmit={handleUpdate} />}
+    </React.Fragment>
+  )
+}
+
+const ListTasks = ({markToDone, removeTask, tasks, updateTask}) => {
+  const classes = useStyles()
 
   return (
     <List dense className={classes.root}>
       {tasks.map((task) => (
-        <Item key={task._id} task={task} />
+        <Item
+          key={task._id}
+          markToDone={markToDone}
+          removeTask={removeTask}
+          task={task}
+          updateTask={updateTask}
+        />
       ))}
     </List>
   )

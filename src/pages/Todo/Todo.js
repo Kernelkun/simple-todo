@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import faker from 'faker'
 import useUser from '../../hooks/useUser'
-import {NewTask} from './components/NewTask'
+import {TaskForm} from './components/TaskForm'
 import {ListTasks} from './components/ListTasks'
 
 const Todo = () => {
@@ -30,14 +30,23 @@ const Todo = () => {
     setTasks(mapped)
   }
 
+  const updateTask = (taskUpdated) => {
+    console.log('taskUpdated:', taskUpdated)
+    const mapped = tasks.map((task) => {
+      return task._id === taskUpdated._id ? {...task, ...taskUpdated} : {...task}
+    })
+
+    setTasks(mapped)
+  }
+
   const handleLogout = () => setUser({logged: false})
 
   return (
     <div>
       <h1>Home</h1>
-      <NewTask createTask={createTask} />
-      <ListTasks tasks={tasks} markToDone={markToDone} removeTask={removeTask} />
       <button onClick={handleLogout}>Logout</button>
+      <TaskForm onSubmit={createTask} />
+      <ListTasks tasks={tasks} markToDone={markToDone} removeTask={removeTask} updateTask={updateTask} />
     </div>
   )
 }

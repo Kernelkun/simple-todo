@@ -10,6 +10,7 @@ import {
   makeStyles,
 } from '@material-ui/core'
 import {Delete as DeleteIcon} from '@material-ui/icons'
+import useTasks from '../../../../hooks/useTasks'
 import {TaskForm} from '../TaskForm'
 
 const useStyles = makeStyles((theme) => ({
@@ -20,7 +21,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const Item = ({markToDone, removeTask, task, updateTask}) => {
+const Item = ({task}) => {
+  const {markToDone, removeTask, updateTask} = useTasks()
   const [isUpdating, setIsUpdating] = useState(false)
   const {_id, done, title} = task
   const labelId = `checkbox-list-label-${_id}`
@@ -53,19 +55,14 @@ const Item = ({markToDone, removeTask, task, updateTask}) => {
   )
 }
 
-const ListTasks = ({markToDone, removeTask, tasks, updateTask}) => {
+const ListTasks = () => {
+  const {tasks} = useTasks()
   const classes = useStyles()
 
   return (
     <List dense className={classes.root}>
       {tasks.map((task) => (
-        <Item
-          key={task._id}
-          markToDone={markToDone}
-          removeTask={removeTask}
-          task={task}
-          updateTask={updateTask}
-        />
+        <Item key={task._id} task={task} />
       ))}
     </List>
   )

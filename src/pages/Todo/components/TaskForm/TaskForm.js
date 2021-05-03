@@ -1,14 +1,16 @@
 import React, {useState} from 'react'
 import {Button, Grid, TextField} from '@material-ui/core'
+import useTasks from '../../../../hooks/useTasks'
 
 const TaskForm = ({autoFocus = false, defaultValue = '', onSubmit = null}) => {
+  const {createTask} = useTasks()
   const [inputText, setInputText] = useState(defaultValue)
 
   const onChange = (event) => setInputText(event.target.value)
 
   const handleOnSubmit = (event) => {
     event.preventDefault()
-    !!onSubmit && onSubmit(inputText)
+    !!onSubmit ? onSubmit(inputText) : createTask(inputText)
     setInputText('')
     event.target.reset()
   }

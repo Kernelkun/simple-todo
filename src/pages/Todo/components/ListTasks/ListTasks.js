@@ -57,6 +57,7 @@ const Item = ({task}) => {
           </IconButton>
         </ListItemSecondaryAction>
       </ListItem>
+
       {isUpdating && <TaskForm defaultValue={title} onSubmit={handleUpdate} />}
     </React.Fragment>
   )

@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {Button, Grid, TextField} from '@material-ui/core'
+import faker from 'faker'
 import useUser from '../../hooks/useUser'
 import {callToLoginEndpoint} from '../../services/auth'
 
@@ -29,16 +30,24 @@ const Login = () => {
       <form onSubmit={handleSubmit} noValidate autoComplete="off">
         <Grid container direction="column" justify="center" spacing={2}>
           <Grid item>
-            <TextField id="user" label="User" name="user" variant="outlined" onChange={handleOnChange} />
+            <TextField
+              id="user"
+              defaultValue={faker.internet.email()}
+              label="User"
+              name="user"
+              onChange={handleOnChange}
+              variant="outlined"
+            />
           </Grid>
           <Grid item>
             <TextField
               id="password"
+              defaultValue={faker.internet.password()}
               label="Password"
               name="password"
-              variant="outlined"
               onChange={handleOnChange}
               type="password"
+              variant="outlined"
             />
           </Grid>
           <Grid item>

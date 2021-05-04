@@ -3,6 +3,8 @@ import React, {useState} from 'react'
 const UserContext = React.createContext()
 
 const defaultUser = {
+  jwt_token: null,
+  jwt_token_expiry: null,
   logged: false,
 }
 

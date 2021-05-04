@@ -8,9 +8,19 @@ const Login = () => {
   const {setUser} = useUser()
   const [formData, setFormData] = useState({user: '', password: ''})
 
-  const handleLogin = () => {
-    const {logged} = callToLoginEndpoint({formData})
-    setUser({logged})
+  const handleLogin = async () => {
+    try {
+      const {jwt_token, jwt_token_expiry} = await callToLoginEndpoint({formData})
+      const tokenIsOnDate = jwt_token_expiry - new Date().getTime() > 0
+
+      if (jwt_token.length > 0 && tokenIsOnDate) {
+        setUser({jwt_token, jwt_token_expiry, logged: true})
+      } else {
+        setUser({logged: false})
+      }
+    } catch (error) {
+      throw new Error('Login error')
+    }
   }
 
   const handleOnChange = (event) => {
@@ -18,9 +28,9 @@ const Login = () => {
     setFormData({...formData, [name]: value})
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
-    handleLogin()
+    await handleLogin()
   }
 
   return (

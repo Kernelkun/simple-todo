@@ -4,11 +4,15 @@ import useUser from '../../hooks/useUser'
 import {TaskForm} from './components/TaskForm'
 import {ListTasks} from './components/ListTasks'
 import {Grid} from '@material-ui/core'
+import {callToLogoutEndpoint} from '../../services/auth'
 
 const Todo = () => {
   const {setUser} = useUser()
 
-  const handleLogout = () => setUser({logged: false})
+  const handleLogout = () => {
+    callToLogoutEndpoint()
+    setUser({jwt_token: null, jwt_token_expiry: null, logged: false})
+  }
 
   return (
     <div>

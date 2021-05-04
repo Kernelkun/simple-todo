@@ -74,13 +74,15 @@ const ListTasks = () => {
 
   return (
     <Grid container justify="center">
-      <Card className={classes.list}>
-        <List dense className={classes.root}>
-          {tasks.map((task) => (
-            <Item key={task._id} task={task} />
-          ))}
-        </List>
-      </Card>
+      {tasks.length > 0 && (
+        <Card className={classes.list}>
+          <List dense className={classes.root}>
+            {tasks.map((task) => (
+              <Item key={task._id} task={task} />
+            ))}
+          </List>
+        </Card>
+      )}
     </Grid>
   )
 }

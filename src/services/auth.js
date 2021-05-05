@@ -1,4 +1,4 @@
-import {serverLogin, serverLogout, serverRefresh} from '../serverMock/server'
+import {serverLogin, serverLogout, serverRefresh} from '../serverMock/auth'
 import {deleteCookie, setCookie} from '../utils/cookies'
 
 export const callToLoginEndpoint = (formData) => {

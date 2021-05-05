@@ -3,6 +3,7 @@ import {Button, Grid, TextField} from '@material-ui/core'
 import faker from 'faker'
 import useUser from '../../hooks/useUser'
 import {callToLoginEndpoint} from '../../services/auth'
+import {checkValidToken} from '../../utils/token'
 
 const Login = () => {
   const {setUser} = useUser()
@@ -11,9 +12,9 @@ const Login = () => {
   const handleLogin = async () => {
     try {
       const {jwt_token, jwt_token_expiry} = await callToLoginEndpoint({formData})
-      const tokenIsOnDate = jwt_token_expiry - new Date().getTime() > 0
+      const isValidToken = checkValidToken({jwt_token, jwt_token_expiry})
 
-      if (jwt_token.length > 0 && tokenIsOnDate) {
+      if (isValidToken) {
         setUser({jwt_token, jwt_token_expiry, logged: true})
       } else {
         setUser({logged: false})

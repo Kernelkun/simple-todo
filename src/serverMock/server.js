@@ -28,15 +28,18 @@ export const serverLogin = () => {
   // cookie, and specially, we need it to make the cookie with the httpOnly config. This attribute make the
   // cookie inaccessible from the script.
 
-  refreshToken = faker.lorem.sentence()
   jwt_token = faker.lorem.sentence()
   jwt_token_expiry = new Date().getTime() + 5 * 60000
+  refreshToken = faker.lorem.sentence()
+
+  localStorage.setItem('refreshToken', `refresh-token=${refreshToken}`)
+  localStorage.setItem('jwt_token', jwt_token)
+  localStorage.setItem('jwt_token_expiry', jwt_token_expiry)
 
   return {
     cookie: refreshToken,
     jwt_token,
     jwt_token_expiry,
-    logged: true,
   }
 }
 
@@ -44,4 +47,16 @@ export const serverLogout = () => {
   jwt_token = null
   jwt_token_expiry = null
   refreshToken = null
+
+  localStorage.setItem('refreshToken', null)
+  localStorage.setItem('jwt_token', null)
+  localStorage.setItem('jwt_token_expiry', null)
+}
+
+export const serverRefresh = (cookie) => {
+  refreshToken = localStorage.getItem('refreshToken')
+
+  if (cookie === refreshToken) {
+    return serverLogin()
+  }
 }

@@ -48,9 +48,9 @@ export const serverLogout = () => {
   jwt_token_expiry = null
   refreshToken = null
 
-  localStorage.setItem('refreshToken', null)
-  localStorage.setItem('jwt_token', null)
-  localStorage.setItem('jwt_token_expiry', null)
+  localStorage.removeItem('refreshToken')
+  localStorage.removeItem('jwt_token')
+  localStorage.removeItem('jwt_token_expiry')
 }
 
 export const serverRefresh = (cookie) => {

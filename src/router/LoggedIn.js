@@ -6,7 +6,7 @@ import {Error} from '../pages/Error'
 const LoggedIn = () => (
   <Router>
     <Switch>
-      <Route exact path="/">
+      <Route key="todo" exact path="/">
         <Todo />
       </Route>
       <Route path="*">

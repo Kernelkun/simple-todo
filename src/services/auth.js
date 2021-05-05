@@ -1,5 +1,6 @@
 import {serverLogin, serverLogout, serverRefresh} from '../serverMock/auth'
 import {deleteCookie, setCookie} from '../utils/cookies'
+import {cleanTasks} from './tasks'
 
 export const callToLoginEndpoint = (formData) => {
   const response = serverLogin(formData)
@@ -16,6 +17,7 @@ export const callToLoginEndpoint = (formData) => {
 }
 
 export const callToLogoutEndpoint = () => {
+  cleanTasks()
   serverLogout()
   deleteCookie('refresh-token')
 }

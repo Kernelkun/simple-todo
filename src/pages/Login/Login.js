@@ -7,6 +7,7 @@ import {checkValidToken} from '../../utils/token'
 
 const Login = () => {
   const {setUser} = useUser()
+  const [isDisabled, setIsDisabled] = useState(false)
   const [formData, setFormData] = useState({user: '', password: ''})
 
   const handleLogin = async () => {
@@ -31,6 +32,7 @@ const Login = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
+    setIsDisabled(true)
     await handleLogin()
   }
 
@@ -62,8 +64,8 @@ const Login = () => {
             />
           </Grid>
           <Grid item>
-            <Button color="primary" type="submit" variant="contained">
-              Login
+            <Button color="primary" disabled={isDisabled} type="submit" variant="contained">
+              Submit
             </Button>
           </Grid>
         </Grid>

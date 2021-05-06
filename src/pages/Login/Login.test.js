@@ -1,8 +1,11 @@
 import React from 'react'
 import {render, fireEvent, waitFor} from '@testing-library/react'
-import faker from 'faker'
 import {UserProvider} from '../../context/User'
+import {callToLoginEndpoint as mockLogin} from '../../services/auth'
+import {buildLoginResponse, buildUser} from '../../utils/tests'
 import Login from './Login'
+
+jest.mock('../../services/auth')
 
 test('renders a form with user, password, and a submit button', async () => {
   const {getByLabelText, getByText} = render(
@@ -10,11 +13,10 @@ test('renders a form with user, password, and a submit button', async () => {
       <Login />
     </UserProvider>,
   )
+  const fakeUser = buildUser()
+  const fakeResponse = buildLoginResponse()
 
-  const fakeUser = {
-    password: faker.internet.password(),
-    user: faker.internet.email(),
-  }
+  mockLogin.mockResolvedValue(fakeResponse)
 
   const userInput = getByLabelText(/user/i)
   const passwordInput = getByLabelText(/password/i)
@@ -28,4 +30,7 @@ test('renders a form with user, password, and a submit button', async () => {
   await waitFor(() => {
     expect(submitButton).toBeDisabled()
   })
+
+  expect(mockLogin).toHaveBeenCalledTimes(1)
+  expect(mockLogin).toHaveBeenCalledWith({formData: fakeUser})
 })

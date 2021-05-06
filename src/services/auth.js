@@ -2,7 +2,7 @@ import {serverLogin, serverLogout, serverRefresh} from '../serverMock/auth'
 import {deleteCookie, setCookie} from '../utils/cookies'
 import {cleanTasks} from './tasks'
 
-export const callToLoginEndpoint = (formData) => {
+export const postLogin = (formData) => {
   const response = serverLogin(formData)
 
   if (response) {
@@ -16,7 +16,7 @@ export const callToLoginEndpoint = (formData) => {
   return Promise.reject('Unauthorized')
 }
 
-export const callToLogoutEndpoint = () => {
+export const postLogout = () => {
   cleanTasks()
   serverLogout()
   deleteCookie('refresh-token')

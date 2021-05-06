@@ -2,17 +2,16 @@ import React, {useState} from 'react'
 import {Button, Grid, TextField} from '@material-ui/core'
 import faker from 'faker'
 import useUser from '../../hooks/useUser'
-import {callToLoginEndpoint} from '../../services/auth'
+import {postLogin} from '../../services/auth'
 import {checkValidToken} from '../../utils/token'
 
 const Login = () => {
   const {setUser} = useUser()
   const [isDisabled, setIsDisabled] = useState(false)
-  const [formData, setFormData] = useState({user: '', password: ''})
 
-  const handleLogin = async () => {
+  const handleLogin = async (formData) => {
     try {
-      const {jwt_token, jwt_token_expiry} = await callToLoginEndpoint({formData})
+      const {jwt_token, jwt_token_expiry} = await postLogin(formData)
       const isValidToken = checkValidToken({jwt_token, jwt_token_expiry})
 
       if (isValidToken) {
@@ -21,19 +20,16 @@ const Login = () => {
         setUser({logged: false})
       }
     } catch (error) {
+      setIsDisabled(false)
       throw new Error('Login error')
     }
   }
 
-  const handleOnChange = (event) => {
-    const {name, value} = event.target
-    setFormData({...formData, [name]: value})
-  }
-
   const handleSubmit = async (event) => {
     event.preventDefault()
+    const {password, user} = event.target.elements
     setIsDisabled(true)
-    await handleLogin()
+    await handleLogin({password: password.value, user: user.value})
   }
 
   return (
@@ -48,7 +44,6 @@ const Login = () => {
               defaultValue={faker.internet.email()}
               label="User"
               name="user"
-              onChange={handleOnChange}
               variant="outlined"
             />
           </Grid>
@@ -58,7 +53,6 @@ const Login = () => {
               defaultValue={faker.internet.password()}
               label="Password"
               name="password"
-              onChange={handleOnChange}
               type="password"
               variant="outlined"
             />

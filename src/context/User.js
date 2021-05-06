@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
 
-const UserContext = React.createContext()
-
 const defaultUser = {
   jwt_token: null,
   jwt_token_expiry: null,
   logged: false,
 }
+
+const UserContext = React.createContext(defaultUser)
 
 export const UserProvider = ({children, user}) => {
   const [currentUser, setCurrentUser] = useState(user || defaultUser)

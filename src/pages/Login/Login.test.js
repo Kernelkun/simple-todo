@@ -1,7 +1,7 @@
 import React from 'react'
 import {render, fireEvent, waitFor} from '@testing-library/react'
 import {UserProvider} from '../../context/User'
-import {callToLoginEndpoint as mockLogin} from '../../services/auth'
+import {postLogin as mockLogin} from '../../services/auth'
 import {buildLoginResponse, buildUser} from '../../utils/tests'
 import Login from './Login'
 
@@ -47,5 +47,5 @@ test('renders a form with user, password, and a submit button', async () => {
   })
 
   expect(mockLogin).toHaveBeenCalledTimes(1)
-  expect(mockLogin).toHaveBeenCalledWith({formData: fakeUser})
+  expect(mockLogin).toHaveBeenCalledWith(fakeUser)
 })

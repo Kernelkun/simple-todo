@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 import faker from 'faker'
-import {getTasks, saveTasks} from '../services/tasks'
-
-const TaskContext = React.createContext()
+import {getTasks, updateTasks} from '../services/tasks'
 
 const defaultTask = getTasks() || []
+
+const TaskContext = React.createContext(defaultTask)
 
 export const TasksProvider = ({children, tasks}) => {
   const [currentTasks, setCurrentTasks] = useState(tasks || defaultTask)
@@ -13,7 +13,7 @@ export const TasksProvider = ({children, tasks}) => {
     const newTask = {_id: faker.datatype.uuid(), done: false, title}
 
     setCurrentTasks([...currentTasks, newTask])
-    saveTasks([...currentTasks, newTask])
+    updateTasks([...currentTasks, newTask])
   }
 
   const markToDone = (_id) => {
@@ -22,7 +22,7 @@ export const TasksProvider = ({children, tasks}) => {
     })
 
     setCurrentTasks(mapped)
-    saveTasks(mapped)
+    updateTasks(mapped)
   }
 
   const removeTask = (_id) => {
@@ -31,7 +31,7 @@ export const TasksProvider = ({children, tasks}) => {
     })
 
     setCurrentTasks(mapped)
-    saveTasks(mapped)
+    updateTasks(mapped)
   }
 
   const updateTask = (taskUpdated) => {
@@ -40,7 +40,7 @@ export const TasksProvider = ({children, tasks}) => {
     })
 
     setCurrentTasks(mapped)
-    saveTasks(mapped)
+    updateTasks(mapped)
   }
 
   return (

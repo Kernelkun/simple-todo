@@ -41,5 +41,9 @@
   },
   "devDependencies": {
     "history": "^5.0.0"
+  },
+  "resolutions": {
+    "**/**/hosted-git-info": "^3.0.8",
+    "**/**/is-svg": "4.2.2"
   }
 }
